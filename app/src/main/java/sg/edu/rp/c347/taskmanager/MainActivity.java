@@ -1,5 +1,6 @@
 package sg.edu.rp.c347.taskmanager;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -30,7 +31,8 @@ public class MainActivity extends AppCompatActivity {
         btnAddTask.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent i = new Intent(MainActivity.this, SecondActivity.class);
+                startActivity(i);
             }
         });
     }
