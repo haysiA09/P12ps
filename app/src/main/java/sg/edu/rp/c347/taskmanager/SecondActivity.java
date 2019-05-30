@@ -2,13 +2,20 @@ package sg.edu.rp.c347.taskmanager;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+
+import java.util.ArrayList;
 
 public class SecondActivity extends AppCompatActivity {
 
     EditText etName, etDescription;
     Button btnAdd2, btnCancel;
+    ArrayAdapter aa;
+    ArrayList<Task> task;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,9 +27,23 @@ public class SecondActivity extends AppCompatActivity {
         btnAdd2 = findViewById(R.id.btnAdd2);
         btnCancel = findViewById(R.id.btnCancel);
 
-        String name = etName.getText().toString();
-        String desc = etDescription.getText().toString();
-
-        //method
+        btnAdd2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DBHelper db = new DBHelper(SecondActivity.this);
+                String name = etName.getText().toString();
+                final String desc = etDescription.getText().toString();
+                db.insertTask(name, desc);
+                Log.d("Success" ,"New Task added");
+                db.close();
+                finish();
+            }
+        });
+        btnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 }
