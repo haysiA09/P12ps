@@ -43,13 +43,14 @@ public class SecondActivity extends AppCompatActivity {
                 Log.d("Success" ,"New Task added");
                 db.close();
 
-                String[]info={name};
+
                 Calendar cal = Calendar.getInstance();
                 cal.add(Calendar.SECOND, 5);
 
                 Intent intent = new Intent(SecondActivity.this,
                         ScheduledNotificationReceiver.class);
-                intent.putExtra("info",info);
+                intent.putExtra("name",name);
+                sendBroadcast(intent);
 
                 PendingIntent pendingIntent = PendingIntent.getBroadcast(
                         SecondActivity.this, reqCode,
