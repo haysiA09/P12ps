@@ -24,9 +24,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         btnAddTask = findViewById(R.id.btnAddTask);
-        aaTask = new TaskAdapter(this, R.layout.activity_main, task);
         lvTask = findViewById(R.id.lvTask);
-        aaTask = new TaskAdapter(this, R.layout.row, task);
+        DBHelper db = new DBHelper(MainActivity.this);
+        ArrayList<Task> data = db.getTaskContent();
+        aaTask = new TaskAdapter(this, R.layout.row, data);
         lvTask.setAdapter(aaTask);
 
         btnAddTask.setOnClickListener(new View.OnClickListener() {
