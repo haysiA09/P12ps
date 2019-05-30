@@ -11,15 +11,17 @@
 
         <TextView
             android:id="@+id/tvID"
-            android:layout_width="wrap_content"
+            android:layout_width="40dp"
             android:layout_height="wrap_content"
-            android:text="id" />
+            android:text="id"
+            android:layout_weight="0.2"/>
 
         <TextView
             android:id="@+id/tvName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="name" />
+            android:text="name"
+            android:layout_weight="0.8"/>
     </LinearLayout>
 
     <TextView
