@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Intent;
+import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -55,6 +56,11 @@ public class SecondActivity extends AppCompatActivity {
                 PendingIntent pendingIntent = PendingIntent.getBroadcast(
                         SecondActivity.this, reqCode,
                         intent, PendingIntent.FLAG_CANCEL_CURRENT);
+
+
+
+
+
 
                 AlarmManager am = (AlarmManager)
                         getSystemService(Activity.ALARM_SERVICE);
